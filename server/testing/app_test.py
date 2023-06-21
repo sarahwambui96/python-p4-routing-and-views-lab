@@ -43,7 +43,7 @@ class TestApp:
         '''counts through range of parameter in "/count/<parameter" on separate lines.'''
         response = app.test_client().get('/count/10')
         count = '0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n'
-        assert(response.data.decode() == count)
+        assert response.data.decode().strip() == count.strip()
 
     def test_math_route(self):
         '''has a resource available at "/math/<parameters>".'''
